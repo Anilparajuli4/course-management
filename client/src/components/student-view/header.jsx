@@ -18,7 +18,7 @@ function StudentViewCommonHeader() {
       <div className="flex items-center space-x-4">
         <Link to="/home" className="flex items-center hover:text-black">
           <GraduationCap className="h-8 w-8 mr-4 " />
-          <span className="font-extrabold md:text-xl text-[14px]">
+          <span className="font-extrabold hidden md:inline-block text-xl text-[14px]">
             LMS LEARN
           </span>
         </Link>
@@ -30,7 +30,7 @@ function StudentViewCommonHeader() {
                 ? null
                 : navigate("/courses");
             }}
-            className="text-[14px] md:text-[16px] font-medium"
+            className="text-[13px] md:text-[16px] font-medium"
           >
             Explore Courses
           </Button>
@@ -42,12 +42,12 @@ function StudentViewCommonHeader() {
             onClick={() => navigate("/student-courses")}
             className="flex cursor-pointer items-center gap-3"
           >
-            <span className="font-extrabold md:text-xl text-[14px]">
+            <span className="font-extrabold md:text-xl hidden md:inline-block">
               My Courses
             </span>
             <TvMinimalPlay className="w-8 h-8 cursor-pointer" />
           </div>
-          <Button onClick={handleLogout}>Sign Out</Button>
+          <Button className='h-8 text-[12px]' onClick={handleLogout}>Sign Out</Button>
         </div>
       </div>
     </header>
