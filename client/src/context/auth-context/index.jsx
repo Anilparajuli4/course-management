@@ -20,6 +20,8 @@ export default function AuthProvider({ children }) {
     const data = await registerService(signUpFormData);
     if(data.success){
       toast.success('register successfully')
+    }else{
+      toast.error('register failed')
     }
   }
 
@@ -39,6 +41,7 @@ export default function AuthProvider({ children }) {
         user: data.data.user,
       });
     } else {
+      toast.error('login failed')
       setAuth({
         authenticate: false,
         user: null,
