@@ -2,6 +2,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { initialSignInFormData, initialSignUpFormData } from "@/config";
 import { checkAuthService, loginService, registerService } from "@/services";
 import { createContext, useEffect, useState } from "react";
+import { toast } from "sonner";
 
 export const AuthContext = createContext(null);
 
@@ -17,6 +18,9 @@ export default function AuthProvider({ children }) {
   async function handleRegisterUser(event) {
     event.preventDefault();
     const data = await registerService(signUpFormData);
+    if(data.success){
+      toast.success('register successfully')
+    }
   }
 
   async function handleLoginUser(event) {
@@ -25,6 +29,7 @@ export default function AuthProvider({ children }) {
     console.log(data, "datadatadatadatadata");
 
     if (data.success) {
+      toast.success('login successfully')
       sessionStorage.setItem(
         "accessToken",
         JSON.stringify(data.data.accessToken)
